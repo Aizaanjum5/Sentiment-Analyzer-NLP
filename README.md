@@ -9,5 +9,5 @@ NLP project that classifies university and course reviews into **positive**, **n
 - LSTM model using word sequences.
 - Streamlit web app to compare model predictions on the same review.
 
-## Installation
+
 
