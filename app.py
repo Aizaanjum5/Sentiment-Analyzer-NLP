@@ -69,7 +69,7 @@ def predict_sentiment(text: str):
     # LSTM
     seq = tokenizer.texts_to_sequences([cleaned])
     pad = pad_sequences(seq, maxlen=100, padding="post", truncating="post")
-    proba_lstm = lstm_model.predict(pad, verbose=0)[0]  # returns array of probs [web:18][web:21]
+    proba_lstm = lstm_model.predict(pad, verbose=0)[0]  # returns array of probs
     pred_lstm_idx = int(np.argmax(proba_lstm))
     pred_lstm = label_encoder.inverse_transform([pred_lstm_idx])[0]
 
@@ -80,7 +80,7 @@ def predict_sentiment(text: str):
         "lstm": {"label": pred_lstm, "proba": proba_lstm},
     }
 
-# ========= Streamlit UI ==========
+
 st.set_page_config(page_title="University Review Sentiment Analyzer", page_icon="🎓")
 st.title("University Review Sentiment Analyzer")
 st.write("Compare **Machine Learning** vs **Deep Learning** models on university/course reviews.")
